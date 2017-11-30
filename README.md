@@ -1,6 +1,10 @@
-# kubecrash-slackbot
+# kubemonitor-slackbot
 
-## Installation
+## Guided Installation
+
+[<img src="https://platform.slack-edge.com/img/add_to_slack.png">](https://slack.com/oauth/authorize?client_id=276786832352.277688463872&scope=bot,channels:read,chat:write:bot)
+
+## Manual Installation
 
 cluster_role.yaml
 ```yaml
