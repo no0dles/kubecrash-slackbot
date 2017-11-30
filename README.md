@@ -1,6 +1,5 @@
 # Kube Monitor Slackbot
-
-KubeMonitor is a monitoring slackbot for Kubernetes clusters. It informs about failing pods in the cluster in realtime and helps to troubleshot them.
+KubeMonitor is a monitoring slackbot for Kubernetes clusters. It informs about failing pods in the cluster in realtime and helps to troubleshoot them.
 
 ![Slackbot](docs/screenshot.png)
 
@@ -10,10 +9,16 @@ KubeMonitor is a monitoring slackbot for Kubernetes clusters. It informs about f
 
 ## Requirements
 - Kubernetes 1.7+
+- RBAC
+
+## Features
+- Monitoring pod condition and container statuses
+- Monitoring job and cron status (development)
+- Monitoring logs (planned)
 
 ## Documentation
 - [Manual Installation](docs/ManualInstallation.md)
-- [Docker Hub](https://hub.docker.com/r/no0dles/kubemonitor-slackbot/)
+- [Docker Hub](https://hub.docker.com/r/no0dles/kubecrash-slackbot/)
 
 ## License
 
