@@ -1,8 +1,10 @@
 import time
+import os
 
 from kubernetes import config, client
-from src.settings import SLACK_ACCESS_TOKEN, SLACK_CHANNEL, CHECK_INTERVAL
-from src.pod_bot import PodBot
+from src.settings import SLACK_ACCESS_TOKEN, SLACK_CHANNEL, CHECK_INTERVAL, USE_KUBECONF
+from src.event_bot import EventBot
+from src.event_store import EventStore
 from src.notifier import Notifier
 
 
@@ -15,13 +17,17 @@ def main():
         print('missing SLACK_CHANNEL environment variable')
         return exit(1)
 
-    config.load_incluster_config()
+    if USE_KUBECONF:
+        config.load_kube_config()
+    else:
+        config.load_incluster_config()
 
     notifier = Notifier(SLACK_ACCESS_TOKEN, SLACK_CHANNEL)
-    pod_bot = PodBot(notifier, client)
+    event_store = EventStore()
+    event_bot = EventBot(event_store, notifier, client.CoreV1Api())
 
     while True:
-        pod_bot.run()
+        event_bot.run()
         notifier.cleanup_cache()
         time.sleep(CHECK_INTERVAL)
 

@@ -2,3 +2,5 @@ env
 *.pyc
 .idea
 README.md
+docs
+store.pkl

@@ -1,0 +1,6 @@
+pipeline:
+  docker:
+    image: plugins/docker
+    repo: no0dles/kubemonitor
+    tags: "${DRONE_BUILD_NUMBER}"
+    secrets: [ docker_username, docker_password ]

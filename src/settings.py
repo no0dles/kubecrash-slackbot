@@ -1,6 +1,16 @@
 import os
 
-CACHE_TTL = os.environ['CACHE_TTL'] if 'CACHE_TTL' in os.environ else 10
-CHECK_INTERVAL = os.environ['CHECK_INTERVAL'] if 'CHECK_INTERVAL' in os.environ else 10
-SLACK_ACCESS_TOKEN = os.environ['SLACK_ACCESS_TOKEN'] if 'SLACK_ACCESS_TOKEN' in os.environ else None
-SLACK_CHANNEL = os.environ['SLACK_CHANNEL'] if 'SLACK_CHANNEL' in os.environ else None
+
+def default(name: str, val):
+    return os.environ[name] if name in os.environ else val
+
+USE_KUBECONF = default('USE_KUBECONF', False)
+CACHE_TTL = default('CACHE_TTL', 10)
+CHECK_INTERVAL = default('CHECK_INTERVAL', 10)
+SLACK_ACCESS_TOKEN = default('SLACK_ACCESS_TOKEN', None)
+SLACK_CHANNEL = default('SLACK_CHANNEL', None)
+STORE_FILE = default('STORE_FILE', 'store.pkl')
+STORE_LIMIT = default('STORE_LIMIT', 100)
+NOTIFY_ERROR = default('NOTIFY_ERROR', True)
+NOTIFY_WARNING = default('NOTIFY_WARNING', True)
+NOTIFY_INFO = default('NOTIFY_INFO', False)

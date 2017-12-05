@@ -13,6 +13,19 @@ class Notifier(object):
         self.access_token = access_token
         self.channel = channel
 
+    def send_message(self, fields=None, color=None):
+        sc = SlackClient(self.access_token)
+        res = sc.api_call('chat.postMessage',
+                          channel=self.channel,
+                          icon_url='',
+                          attachments=[{
+                              "fields": fields,
+                              "color": color,
+                          }])
+
+        if not res['ok']:
+            print(res['error'])
+
     def send_pod_info(self, pod: Pod):
         if not self.has_changed(pod):
             return
@@ -20,14 +33,7 @@ class Notifier(object):
         if not pod.is_error():
             return
 
-        sc = SlackClient(self.access_token)
-        sc.api_call('chat.postMessage',
-                    channel=self.channel,
-                    icon_url='',
-                    attachments=[{
-                        "pretext": pod.message_title(),
-                        "text": pod.message_content()
-                    }])
+        self.send_message(pod.message_title(), pod.message_content())
 
     def has_changed(self, status: Pod):
         identifier = status.identifier()
