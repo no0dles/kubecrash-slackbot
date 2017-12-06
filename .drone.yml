@@ -5,6 +5,7 @@ pipeline:
       - pip install -r requirements.txt
       - coverage run test.py
       - codecov
+    secrets: [ codecov_token ]
 
   publish:
     image: plugins/docker
