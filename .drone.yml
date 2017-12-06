@@ -5,4 +5,4 @@ pipeline:
     tags: "${DRONE_TAG}"
     secrets: [ docker_username, docker_password ]
     when:
-      event: tag
+      branch: release/*
