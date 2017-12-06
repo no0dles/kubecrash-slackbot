@@ -1,8 +1,8 @@
 pipeline:
-  image:
+  publish:
     image: plugins/docker
     repo: no0dles/kubemonitor
     tags: "${DRONE_TAG}"
     secrets: [ docker_username, docker_password ]
     when:
-      branch: release/*
+      event: tag
