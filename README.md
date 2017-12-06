@@ -1,4 +1,6 @@
 # Kube Monitor Slackbot
+![CI](https://ci.bertschi.io/api/badges/no0dles/kubemonitor-slackbot/status.svg)
+
 KubeMonitor is a monitoring slackbot for Kubernetes clusters. It informs about failing pods in the cluster in realtime and helps to troubleshoot them.
 
 ![Slackbot](docs/screenshot.png)
