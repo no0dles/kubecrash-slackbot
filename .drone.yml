@@ -4,7 +4,7 @@ pipeline:
     commands:
       - pip install -r requirements.txt
       - coverage run test.py
-      - bash <(curl -s https://codecov.io/bash)
+      - codecov
 
   publish:
     image: plugins/docker
