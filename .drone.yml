@@ -1,6 +1,8 @@
 pipeline:
-  docker:
+  image:
     image: plugins/docker
     repo: no0dles/kubemonitor
-    tags: "${DRONE_BUILD_NUMBER}"
+    tags: "${DRONE_TAG}"
     secrets: [ docker_username, docker_password ]
+    when:
+      event: tag
