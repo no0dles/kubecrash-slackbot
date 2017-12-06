@@ -4,6 +4,7 @@ pipeline:
     commands:
       - pip install -r requirements.txt
       - coverage run test.py
+      - codecov
 
   publish:
     image: plugins/docker
