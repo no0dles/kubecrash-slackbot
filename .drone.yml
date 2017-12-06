@@ -1,4 +1,9 @@
 pipeline:
+  test:
+    image: python:3.6.3
+    commands:
+      - python test.py
+
   publish:
     image: plugins/docker
     repo: no0dles/kubemonitor
