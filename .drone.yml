@@ -12,6 +12,7 @@ pipeline:
     group: build
     image: plugins/docker
     repo: no0dles/kubemonitor
+    dry_run: true
     
   publish:
     image: plugins/docker
