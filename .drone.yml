@@ -6,7 +6,13 @@ pipeline:
       - coverage run test.py
       - codecov
     secrets: [ codecov_token ]
-
+    
+  build:
+    image: plugins/docker
+    repo: no0dles/kubemonitor
+    dry_run: true
+    pull_image: true
+    
   publish:
     image: plugins/docker
     repo: no0dles/kubemonitor
