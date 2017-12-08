@@ -1,5 +1,6 @@
 pipeline:
   test:
+    group: build
     image: python:3.6.3
     commands:
       - pip install -r requirements.txt
@@ -8,10 +9,9 @@ pipeline:
     secrets: [ codecov_token ]
     
   build:
+    group: build
     image: plugins/docker
     repo: no0dles/kubemonitor
-    dry_run: true
-    pull_image: true
     
   publish:
     image: plugins/docker
