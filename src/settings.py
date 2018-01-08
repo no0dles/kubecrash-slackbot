@@ -7,6 +7,7 @@ def default(name: str, val):
 USE_KUBECONF = default('USE_KUBECONF', False)
 CACHE_TTL = default('CACHE_TTL', 10)
 CHECK_INTERVAL = default('CHECK_INTERVAL', 10)
+HTTP_PROXY = default('HTTP_PROXY', None)
 SLACK_ACCESS_TOKEN = default('SLACK_ACCESS_TOKEN', None)
 SLACK_CHANNEL = default('SLACK_CHANNEL', None)
 STORE_FILE = default('STORE_FILE', 'store.pkl')
