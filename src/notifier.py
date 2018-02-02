@@ -1,4 +1,4 @@
-from src.settings import HTTP_PROXY, HTTPS_PROXY
+from src.settings import HTTP_PROXY, HTTPS_PROXY, MUTED
 from typing import Mapping
 from src.pod import Pod
 from slackclient import SlackClient
@@ -23,6 +23,9 @@ class Notifier(object):
             self.proxies['https'] = HTTPS_PROXY
 
     def send_message(self, fields=None, color=None):
+        if MUTED:
+            return
+
         sc = SlackClient(self.access_token, self.proxies)
         res = sc.api_call('chat.postMessage',
                           channel=self.channel,

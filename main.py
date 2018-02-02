@@ -6,6 +6,7 @@ from src.settings import SLACK_ACCESS_TOKEN, SLACK_CHANNEL, CHECK_INTERVAL, USE_
 from src.event_bot import EventBot
 from src.event_store import EventStore
 from src.notifier import Notifier
+from src.slack_bot import SlackBot
 
 
 def main():
@@ -22,6 +23,7 @@ def main():
     else:
         config.load_incluster_config()
 
+    slack = SlackBot(client.CoreV1Api())
     notifier = Notifier(SLACK_ACCESS_TOKEN, SLACK_CHANNEL)
     event_store = EventStore()
     event_bot = EventBot(event_store, notifier, client.CoreV1Api())

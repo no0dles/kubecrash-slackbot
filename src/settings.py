@@ -16,3 +16,4 @@ STORE_LIMIT = default('STORE_LIMIT', 100)
 NOTIFY_ERROR = default('NOTIFY_ERROR', True)
 NOTIFY_WARNING = default('NOTIFY_WARNING', True)
 NOTIFY_INFO = default('NOTIFY_INFO', False)
+MUTED = False
