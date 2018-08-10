@@ -24,7 +24,7 @@ class EventBot(object):
         if not NOTIFY_UNHEALTHY and event.reason == 'Unhealthy':
             return
         
-        if not NOTIFY_FAILEDSYNC and event.reason = 'FailedSync':
+        if not NOTIFY_FAILEDSYNC and event.reason == 'FailedSync':
             return
         
         if self.store.contains(event.metadata.uid):
@@ -69,8 +69,14 @@ class EventBot(object):
             fields.append({
                 "title": "Host",
                 "value": event.source.host,
-                "short": False
+                "short": True
             })
+            
+        fields.append({
+            "title": "Time",
+            "value": event.last_timestamp,
+            "short": True
+        })
 
         self.notifier.send_message(fields=fields, color=color)
         self.store.store(event.metadata.uid)
