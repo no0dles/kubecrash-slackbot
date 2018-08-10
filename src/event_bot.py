@@ -1,5 +1,5 @@
 from kubernetes.client import CoreV1Api, V1Event
-from src.settings import NOTIFY_ERROR, NOTIFY_WARNING, NOTIFY_INFO
+from src.settings import NOTIFY_ERROR, NOTIFY_WARNING, NOTIFY_INFO, NOTIFY_UNHEALTHY
 from src.notifier import Notifier
 from src.event_store import EventStore
 
@@ -19,6 +19,9 @@ class EventBot(object):
             return
 
         if not NOTIFY_INFO and event.type == 'Normal':
+            return
+        
+        if not NOTIFY_UNHEALTHY and event.reason == 'Unhealthy':
             return
 
         if self.store.contains(event.metadata.uid):
