@@ -71,12 +71,13 @@ class EventBot(object):
                 "value": event.source.host,
                 "short": True
             })
-            
-        fields.append({
-            "title": "Time",
-            "value": event.last_timestamp,
-            "short": True
-        })
+        
+        if event.last_timestamp:
+            fields.append({
+                "title": "Time",
+                "value": event.last_timestamp.strftime("%Y-%m-%d %H:%M:%S"),
+                "short": True
+            })
 
         self.notifier.send_message(fields=fields, color=color)
         self.store.store(event.metadata.uid)
