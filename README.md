@@ -1,5 +1,5 @@
 # Kube Monitor Slackbot
-![CI](https://ci.bertschi.io/api/badges/no0dles/kubemonitor-slackbot/status.svg)
+[![Build Status](https://ci.bertschi.io/api/badges/no0dles/kubemonitor-slackbot/status.svg)](https://ci.bertschi.io/no0dles/kubemonitor-slackbot)
 [![codecov](https://codecov.io/gh/no0dles/kubemonitor-slackbot/branch/master/graph/badge.svg)](https://codecov.io/gh/no0dles/kubemonitor-slackbot)
 [![GitHub release](https://img.shields.io/github/release/no0dles/kubemonitor-slackbot.svg)](https://github.com/no0dles/kubemonitor-slackbot/releases/latest)
 
