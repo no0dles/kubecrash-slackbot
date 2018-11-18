@@ -2,7 +2,7 @@ kind: pipeline
 name: default
 
 steps:
-  test:
+  - name: test
     group: build
     image: python:3.6.3
     commands:
@@ -11,13 +11,13 @@ steps:
       - codecov
     secrets: [ codecov_token ]
     
-  build:
+  - name: build
     group: build
     image: plugins/docker
     repo: no0dles/kubemonitor
     dry_run: true
     
-  publish:
+  - name: publish
     image: plugins/docker
     repo: no0dles/kubemonitor
     tags: "${DRONE_TAG}"
