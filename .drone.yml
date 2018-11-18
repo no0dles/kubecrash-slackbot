@@ -1,4 +1,7 @@
-pipeline:
+kind: pipeline
+name: default
+
+steps:
   test:
     group: build
     image: python:3.6.3
