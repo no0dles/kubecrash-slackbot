@@ -18,6 +18,7 @@ steps:
     tags: "${DRONE_TAG}"
     dry_run: true
     
+    
   - name: publish
     image: plugins/docker
     repo: no0dles/kubemonitor
