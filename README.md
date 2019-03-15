@@ -27,3 +27,4 @@ KubeMonitor is a monitoring slackbot for Kubernetes clusters. It informs about f
 ## License
 
 WTFPL
+
